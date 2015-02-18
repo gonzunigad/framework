@@ -1,5 +1,6 @@
 <?php namespace Illuminate\Contracts\Foundation;
 
+use Closure;
 use Illuminate\Contracts\Container\Container;
 
 interface Application extends Container {
@@ -28,7 +29,7 @@ interface Application extends Container {
 
 	/**
 	 * Register all of the configured providers.
-	 *
+	 *F
 	 * @return void
 	 */
 	public function registerConfiguredProviders();
@@ -74,5 +75,20 @@ interface Application extends Container {
 	 * @return void
 	 */
 	public function booted($callback);
+
+	/**
+	 * Get the environment file the application is using.
+	 *
+	 * @return string
+	 */
+	public function environmentFile();
+
+	/**
+	 * Detect the application's current environment.
+	 *
+	 * @param  Closure  $callback
+	 * @return string
+	 */
+	public function detectEnvironment(Closure $callback);
 
 }
